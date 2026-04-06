@@ -153,28 +153,29 @@ Unlike traditional CNN models, this system:
 
 ## 📁 Project Structure
 Medi_Swin/
-│── arch/
+│── arch/                              # Generator + Discriminator
 │ ├── generator.py
 │ ├── discriminator.py
-│
-│── data/
+│── data/                              # COVID / Normal images
 │ ├── raw/
-│
-│── dataset/
+│ |────COVID
+| |────Normal
+│── dataset/                           # Dataset loader
 │ └── xray_dataset.py
-│
-│── utils/
+├── checkpoints                        # Saved models
+│── utils/                             # Losses, metrics, degradation
 │ ├── degradation.py
 │ ├── losses.py
 │ ├── metrics.py
+├── results                           # Outputs
 │── config.py
 │── train.py
 │── test.py
 │── unseen.py
 │── visualize.py
 │── requirements.txt
+``` id="structure-block"
 
----
 ---
 
 ## 📦 Requirements
