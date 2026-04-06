@@ -35,8 +35,6 @@ Unlike traditional CNN models, this system:
 
 ## 🏗️ Architecture
 
-![Architecture](images/architecture.png)
-
 ### 🔹 Generator: MediSwin
 
 - Backbone: `swin_tiny_patch4_window7_224` (pretrained)
@@ -57,8 +55,6 @@ Unlike traditional CNN models, this system:
 
 ## ⚙️ Degradation Pipeline
 
-![Degradation](images/degradation.png)
-
 ### 🔥 Training-Time Degradation (Dynamic)
 
 - Gaussian Blur (80% probability)
@@ -71,25 +67,37 @@ Unlike traditional CNN models, this system:
 
 ## 📂 Dataset
 
-- **Dataset:** COVID-19 Radiography Database  
+- **Name:** COVID-19 Radiography Database  
+- **Source:** [![Kaggle](https://img.shields.io/badge/Dataset-Kaggle-blue)](https://www.kaggle.com/datasets/tawsifurrahman/covid19-radiography-database)
 - **Type:** Grayscale Chest X-rays  
-- **Structure:**
-
 
 ---
 
 ## 🧪 Training Strategy
 
-### 🔹 Two-Phase Training
+## ⚙️ Learning Rate Strategy (TTUR)
 
+Uses **TTUR (Two-Time Scale Update Rule)** for stable GAN training:  
+➡️ **Generator learns faster**, **Discriminator slower** → avoids collapse  
+
+---
 #### 🟢 Phase 1: Baseline Learning (Epochs 1–25)
-- Moderate degradation
-- Focus: Texture reconstruction
-- Optimizes PSNR & SSIM
 
+- **LR_G:** `2e-4 → 5e-5`  
+- **LR_D:** `5e-5`  
+
+✔ Learn structure + textures  
+✔ Moderate degradation  
+
+---
 #### 🔴 Phase 2: Stress Testing (Epochs 26–30)
-- Heavy noise + aggressive scaling
-- Focus: Real-world robustness
+
+- **LR_G:** `5e-5`  
+- **LR_D:** `1e-5`  
+
+✔ Lower LR → stabilize + remove loss spikes  
+✔ Improve perceptual quality  
+✔ Heavy degradation: σ≈20 noise, ~0.4x scaling  
 
 ---
 
@@ -207,3 +215,21 @@ conda activate mediswin
 
 pip install -r requirements.txt
 ```
+
+---
+
+## ⚡ Key Strengths
+- Transformer-based global understanding  
+- GAN-based realism  
+- Medical texture preservation  
+- Robust under extreme corruption  
+
+---
+
+## 🔮 Future Work
+MRI / CT support • Real-time inference • Web deployment  
+
+---
+
+## 📜 License
+MIT
