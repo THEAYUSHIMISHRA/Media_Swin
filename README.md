@@ -133,6 +133,9 @@ Uses **TTUR (Two-Time Scale Update Rule)** for stable GAN training:
 - **GAN Loss (BCEWithLogits + Soft Labels)** → Adversarial training  
 
 ✔ Ensures both **numerical + visual fidelity**
+\[
+\mathcal{L}_{total} = 50\,\mathcal{L}_{L1} + 5\,\mathcal{L}_{perc} + \mathcal{L}_{GAN}
+\]
 
 ---
 
