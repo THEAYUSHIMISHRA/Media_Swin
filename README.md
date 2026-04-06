@@ -132,7 +132,7 @@ Uses **TTUR (Two-Time Scale Update Rule)** for stable GAN training:
 
 ✔ Ensures both **numerical + visual fidelity**
 
-![Loss Function](results/loss formula.png)
+![Loss Function](results/loss_formula.png)
 
 ---
 
