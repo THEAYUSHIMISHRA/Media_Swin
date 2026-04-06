@@ -175,7 +175,21 @@ Medi_Swin/
 │── requirements.txt
 
 ---
+---
 
+## 📦 Requirements
+
+```txt id="requirements-block"
+torch>=2.0
+torchvision>=0.15
+timm>=0.9
+opencv-python
+numpy
+matplotlib
+pillow
+pandas
+scikit-image
+```
 
 ---
 
@@ -190,3 +204,4 @@ conda create -n mediswin python=3.10
 conda activate mediswin
 
 pip install -r requirements.txt
+```
