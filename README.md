@@ -73,9 +73,7 @@ Unlike traditional CNN models, this system:
 
 ---
 
-## 🧪 Training Strategy
-
-## ⚙️ Learning Rate Strategy (TTUR)
+## 🧪 Training Strategy : Learning Rate Strategy (TTUR)
 
 Uses **TTUR (Two-Time Scale Update Rule)** for stable GAN training:  
 ➡️ **Generator learns faster**, **Discriminator slower** → avoids collapse  
@@ -133,6 +131,8 @@ Uses **TTUR (Two-Time Scale Update Rule)** for stable GAN training:
 - **GAN Loss (BCEWithLogits + Soft Labels)** → Adversarial training  
 
 ✔ Ensures both **numerical + visual fidelity**
+
+![Loss Function](results/loss formula.png)
 
 ---
 
