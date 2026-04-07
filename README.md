@@ -148,7 +148,7 @@ Uses **TTUR (Two-Time Scale Update Rule)** for stable GAN training:
 
 ## 🖼️ Visual Results
 
-![Results](results/resepoch30 .png)
+![Results](results/resepoch30.png)
 
 ### ✨ Observations
 
