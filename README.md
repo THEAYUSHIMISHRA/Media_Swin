@@ -216,9 +216,9 @@ pip install -r requirements.txt
 ## 🚜Train
 ```bash
 # Run on terminal
-python train.py
-# For Visualization
-python visualize.py
+python train.py           # FOR TRAINING
+python visualize.py       # For Visualization
+python unseen.py          # For Testing        
 ```
 ---
 
