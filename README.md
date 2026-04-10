@@ -69,7 +69,8 @@ Unlike traditional CNN models, this system:
 
 - **Name:** COVID-19 Radiography Database  
 - **Source:** [![Kaggle](https://img.shields.io/badge/Dataset-Kaggle-blue)](https://www.kaggle.com/datasets/tawsifurrahman/covid19-radiography-database)
-- **Type:** Grayscale Chest X-rays  
+- **Type:** Grayscale Chest X-rays  (only Covid and Normal lungs)
+- **Total** : 13,808 images
 
 ---
 
