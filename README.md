@@ -80,7 +80,7 @@ Uses **TTUR (Two-Time Scale Update Rule)** for stable GAN training:
 ➡️ **Generator learns faster**, **Discriminator slower** → avoids collapse  
 
 ---
-#### 🟢 Phase 1: Baseline Learning (Epochs 1–25)
+#### 🟢 Phase 1: Baseline Learning (Epochs 1–20)
 
 - **LR_G:** `2e-4 → 5e-5`  
 - **LR_D:** `5e-5`  
@@ -89,7 +89,7 @@ Uses **TTUR (Two-Time Scale Update Rule)** for stable GAN training:
 ✔ Moderate degradation  
 
 ---
-#### 🔴 Phase 2: Stress Testing (Epochs 26–30)
+#### 🔴 Phase 2: Stress Testing (Epochs 21–30)
 
 - **LR_G:** `5e-5`  
 - **LR_D:** `1e-5`  
