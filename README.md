@@ -74,29 +74,46 @@ Unlike traditional CNN models, this system:
 
 ---
 
-## 🧪 Training Strategy : Learning Rate Strategy (TTUR)
+## 🧪 Training Strategy: Learning Rate Strategy (TTUR)
 
 Uses **TTUR (Two-Time Scale Update Rule)** for stable GAN training:  
 ➡️ **Generator learns faster**, **Discriminator slower** → avoids collapse  
 
 ---
+
 #### 🟢 Phase 1: Baseline Learning (Epochs 1–20)
-
-- **LR_G:** `2e-4 → 5e-5`  
-- **LR_D:** `5e-5`  
-
-✔ Learn structure + textures  
-✔ Moderate degradation  
+* **LR_G:** `2e-4` → `5e-5` (for stability on 4GB VRAM)
+* **LR_D:** `5e-5`
+* ✔ Learn structure + textures
+* ✔ Moderate degradation
 
 ---
-#### 🔴 Phase 2: Stress Testing (Epochs 21–30)
 
-- **LR_G:** `5e-5`  
-- **LR_D:** `1e-5`  
+#### 🟡 Phase 2: Stress Testing & Noise (Epochs 21–30)
+* **LR_G:** `5e-5` (4x slower than initial)
+* **LR_D:** `1e-5` (5x slower than initial)
+* ✔ Lower LR to stabilize and "settle" weights after Epoch 19 spikes
+* ✔ Heavy degradation: σ≈20 noise, ~0.4x scaling for fine-tuning
 
-✔ Lower LR → stabilize + remove loss spikes  
-✔ Improve perceptual quality  
-✔ Heavy degradation: σ≈20 noise, ~0.4x scaling  
+---
+
+#### 🔴 Phase 3: High-Precision Refinement (Epochs 31–40)
+* **LR_G:** `2e-5`
+* **LR_D:** `5e-6`
+* ✔ Optimized to handle **0.2x scaling** without gradient crashing
+* ✔ Prevents overfitting and keeps the Discriminator from becoming too aggressive
+
+---
+
+## ⏱️ Final Hyperparameter Configuration
+
+| Parameter | Initial Phase (1-20) | Fine-Tuning (31-40) |
+| :--- | :--- | :--- |
+| **Epochs** | 20 | 40 (Total) |
+| **Batch Size** | 4 | 4 |
+| **LR (Generator)** | $2 \times 10^{-4}$ | $2 \times 10^{-5}$ |
+| **LR (Discriminator)** | $5 \times 10^{-5}$ | $5 \times 10^{-6}$ |
+| **Image Size** | 224 | 224 |
 
 ---
 
