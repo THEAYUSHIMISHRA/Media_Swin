@@ -2,14 +2,11 @@ import torch
 import torch.nn as nn
 import torchvision.models as models
 from torchvision.models import VGG16_Weights
-
-
 class GANLoss(nn.Module):
     """
     Standard GAN Loss using BCEWithLogitsLoss.
     Modified to support Soft Labels (Label Smoothing) for stability.
     """
-
     def __init__(self):
         super().__init__()
         # We use BCEWithLogitsLoss because it is more numerically stable than Sigmoid + BCE
@@ -23,8 +20,6 @@ class GANLoss(nn.Module):
         # Create a target tensor filled with the target_val (e.g., 0.9)
         target = torch.full_like(pred, target_val)
         return self.loss(pred, target)
-
-
 class L1Loss(nn.Module):
     """
     Pixel-wise L1 Loss to ensure anatomical accuracy in X-rays.
@@ -36,13 +31,10 @@ class L1Loss(nn.Module):
 
     def forward(self, pred, target):
         return self.loss(pred, target)
-
-
 class PerceptualLoss(nn.Module):
     """
     Perceptual Loss using VGG16 features to preserve medical textures.
     """
-
     def __init__(self):
         super().__init__()
         # Load pre-trained VGG16 weights
@@ -56,7 +48,6 @@ class PerceptualLoss(nn.Module):
             param.requires_grad = False
 
         self.criterion = nn.L1Loss()
-
     def forward(self, fake, real):
         # VGG expects 3-channel input [B, 3, H, W]
         # Since your X-rays are repeated in the dataset, we just verify the shape
