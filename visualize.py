@@ -98,4 +98,4 @@ def final_visualize(checkpoint_epoch, num_samples=3):
 
 
 if __name__ == "__main__":
-    final_visualize(checkpoint_epoch=27, num_samples=3)
+    final_visualize(checkpoint_epoch=38, num_samples=3)

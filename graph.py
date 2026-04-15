@@ -82,8 +82,8 @@ def plot_training_trend(epochs, psnr_trend, ssim_trend):
 
 if __name__ == "__main__":
     # Define the epochs you want to compare
-    checkpoint_files = ["ckpt_epoch_24.pth", "ckpt_epoch_30.pth", "ckpt_epoch_40.pth"]
-    epoch_numbers = [20, 25, 32]
+    checkpoint_files = ["ckpt_epoch_20.pth", "ckpt_epoch_25.pth", "ckpt_epoch_32.pth", "ckpt_epoch_39.pth"]
+    epoch_numbers = [20, 25, 32, 39]
 
     final_psnrs = []
     final_ssims = []

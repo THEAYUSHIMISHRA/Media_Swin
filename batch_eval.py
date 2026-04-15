@@ -66,4 +66,4 @@ def run_batch_evaluation(checkpoint_epoch):
 
 
 if __name__ == "__main__":
-    run_batch_evaluation(checkpoint_epoch=24)
+    run_batch_evaluation(checkpoint_epoch=39)

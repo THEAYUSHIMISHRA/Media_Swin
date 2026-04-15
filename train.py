@@ -48,6 +48,7 @@ def train():
         print(f"Resuming from checkpoint: {checkpoint_path}")
         ckpt = torch.load(checkpoint_path, map_location=device)
 
+
         G.load_state_dict(ckpt['G_state_dict'])
         D.load_state_dict(ckpt['D_state_dict'])
         opt_G.load_state_dict(ckpt['opt_G_state_dict'])

@@ -62,6 +62,6 @@ if __name__ == "__main__":
     TEST_IMAGE = os.path.join(config.DATASET_PATH, "COVID", os.listdir(os.path.join(config.DATASET_PATH, "COVID"))[0])
 
     # Select the milestones you want to compare
-    MILESTONES = [0, 3, 5, 7, 10, 12, 15, 18, 22, 24]
+    MILESTONES = [0, 5, 10, 15, 25, 29]
 
     show_evolution(TEST_IMAGE, MILESTONES)
