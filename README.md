@@ -160,9 +160,7 @@ Epoch 30
 
 Epoch 40
 ![Results](results/test39.png)
-
 ### ✨ Observations
-
 - Removes **heavy noise & blur**
 - Preserves **fine anatomical details**
 - No hallucinated artifacts
